@@ -10,10 +10,72 @@ function getComputerChoice()
     switch(randomNumber)
     {
         case 0:
-            return "Rock";
+            return "rock";
         case 1:
-            return "Paper";
+            return "paper";
         case 2:
-            return "Scissor";
+            return "scissors";
     }
 }
+
+function gameRound(playerSelection, computerSelection)
+{
+    // Converting player input to lower case
+    playerSelection = playerSelection.toLowerCase();
+
+    // console.log(playerSelection);
+    // console.log(computerSelection);
+
+    // Returning a statement based on player and compter selection
+    if(playerSelection === "rock")
+    {
+        if(computerSelection === "rock")
+        {
+            return "It's a tie";
+        }
+        else if(computerSelection === "paper")
+        {
+            return "You Lose!! Paper beats Rock";
+        }
+        else if(computerSelection === "scissors")
+        {
+            return "You Win!!! Rock beats Scissors";
+        }
+    }
+    else if(playerSelection === "paper")
+    {
+        if(computerSelection === "rock")
+        {
+            return "You Win!!! Paper beats Rock";
+        }
+        else if(computerSelection === "paper")
+        {
+            return "It's a tie";
+        }
+        else if(computerSelection === "scissors")
+        {
+            return "You Lose!! Scissors beats Paper";
+        }
+    }
+    else if(playerSelection === "scissors")
+    {
+        if(computerSelection === "rock")
+        {
+            return "You Lose!! Rock beats Scissors";
+        }
+        else if(computerSelection === "paper")
+        {
+            return "You Win!!! Scissors beats Paper";
+        }
+        else if(computerSelection === "scissors")
+        {
+            return "It's a tie";
+        }
+    }
+    else
+    {
+        return "Please enter a valid input"
+    }
+}
+
+console.log(gameRound("Rock", getComputerChoice()))

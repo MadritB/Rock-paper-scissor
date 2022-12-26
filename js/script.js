@@ -4,7 +4,7 @@ function getComputerChoice()
 {
     // Generates a random number from 0-2
     let randomNumber = (Math.floor(Math.random() * 100) % 3);
-    console.log(randomNumber);
+    // console.log(randomNumber);
 
     // Based on random number, return a choice
     switch(randomNumber)
@@ -30,46 +30,55 @@ function gameRound(playerSelection, computerSelection)
     if(playerSelection === "rock")
     {
         if(computerSelection === "rock")
-        {
-            return "It's a tie";
+        {   
+            console.log("It's a tie");
+            return "tie";
         }
         else if(computerSelection === "paper")
         {
-            return "You Lose!! Paper beats Rock";
+            console.log("You Lose!! Paper beats Rock");
+            return "computer";
         }
         else if(computerSelection === "scissors")
         {
-            return "You Win!!! Rock beats Scissors";
+            console.log("You Win!!! Rock beats Scissors");
+            return "player";
         }
     }
     else if(playerSelection === "paper")
     {
         if(computerSelection === "rock")
         {
-            return "You Win!!! Paper beats Rock";
+            console.log("You Win!!! Paper beats Rock");
+            return "player";
         }
         else if(computerSelection === "paper")
         {
-            return "It's a tie";
+            console.log("It's a tie");
+            return "tie";
         }
         else if(computerSelection === "scissors")
         {
-            return "You Lose!! Scissors beats Paper";
+            console.log("You Lose!! Scissors beats Paper");
+            return "computer";
         }
     }
     else if(playerSelection === "scissors")
     {
         if(computerSelection === "rock")
         {
-            return "You Lose!! Rock beats Scissors";
+            console.log("You Lose!! Rock beats Scissors");
+            return "computer";
         }
         else if(computerSelection === "paper")
         {
-            return "You Win!!! Scissors beats Paper";
+            console.log("You Win!!! Scissors beats Paper");
+            return "player";
         }
         else if(computerSelection === "scissors")
         {
-            return "It's a tie";
+            console.log("It's a tie");
+            return "tie";
         }
     }
     else
@@ -78,4 +87,57 @@ function gameRound(playerSelection, computerSelection)
     }
 }
 
-console.log(gameRound("Rock", getComputerChoice()))
+function game()
+{
+    let playerWins = 0;
+    let computerWins = 0;
+
+    let keepGoing = true;
+
+    while(keepGoing)
+    {
+        // Getting player input
+        let playerSelection = prompt("Make a choice");
+        if(playerSelection === null)
+        {
+            keepGoing = false;
+            return "Game ended by Player"
+        }
+        
+        let computerSelection = getComputerChoice();
+
+        // Calling game round function and storing the winner
+        let winner = gameRound(playerSelection, computerSelection);
+
+        // Increasing the wins based on the winner
+        if(winner === "player")
+        {
+            playerWins++;
+        }
+        else if(winner === "computer")
+        {
+            computerWins++;
+        }
+
+        // console.log(winner);
+        // console.log(playerWins);
+        // console.log(computerWins);
+        console.log("Player: " + playerWins + " Computer: " + computerWins);
+
+        // End the loop if one of the two wins
+        if(playerWins === 5)
+        {
+            keepGoing = false;
+
+            // easter egg
+            let message = prompt("Please leave a message for your opponent")
+            return `Player wins the game...
+                "${message}" - Player (2022)`;
+        }
+        if(computerWins === 5)
+        {
+            keepGoing = false;
+            return "Good Afternoon Player!!! Computer wins the game"
+        }
+    }
+}

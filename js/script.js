@@ -26,7 +26,7 @@ function gameRound(playerSelection, computerSelection)
     // console.log(playerSelection);
     // console.log(computerSelection);
 
-    // Returning a statement based on player and compter selection
+    // Returning a statement based on player and computer selection
     if(playerSelection === "rock")
     {
         if(computerSelection === "rock")

@@ -1,4 +1,54 @@
-console.log("Ready to go!!!");
+// Game text
+const gameText = document.querySelector('.textArea .text');
+gameText.textContent = "Ready to go!!!";
+
+// Player and computer score
+const playerScore = document.querySelector('.pscore');
+playerScore.textContent = '0';
+
+const computerScore = document.querySelector('.cscore');
+computerScore.textContent = '0';
+
+// Score variables
+let playerWins = 0;
+let computerWins = 0;
+let keepGoing = true;
+
+// Game logic
+
+function buttonPressed(e)
+{
+    // Checks if someone already won the game
+    if(!keepGoing) return;
+
+    // 'this.id' is the playerChoice
+    let winner = gameRound(`${this.id}`, getComputerChoice());
+    if(winner === "player")
+    {
+        playerWins++;
+    }
+    else if(winner === "computer")
+    {
+        computerWins++;
+    }
+    playerScore.textContent = `${playerWins}`;
+    computerScore.textContent = `${computerWins}`;
+    if(playerWins === 5)
+    {
+        keepGoing = false;
+        gameText.textContent = "Player won the game";
+    }
+    else if(computerWins === 5)
+    {
+        keepGoing = false;
+        gameText.textContent = "Computer won the game";
+    }
+}
+
+// Adding event listeners to buttons
+const buttons = document.querySelectorAll('.buttons');
+buttons.forEach((button) => button.addEventListener('click', buttonPressed));
+
 
 function getComputerChoice()
 {
@@ -31,17 +81,17 @@ function gameRound(playerSelection, computerSelection)
     {
         if(computerSelection === "rock")
         {   
-            console.log("It's a tie");
+            gameText.textContent = "It's a tie";
             return "tie";
         }
         else if(computerSelection === "paper")
         {
-            console.log("You Lose!! Paper beats Rock");
+            gameText.textContent = "You Lose!! Paper beats Rock";
             return "computer";
         }
         else if(computerSelection === "scissors")
         {
-            console.log("You Win!!! Rock beats Scissors");
+            gameText.textContent = "You Win!!! Rock beats Scissors";
             return "player";
         }
     }
@@ -49,17 +99,17 @@ function gameRound(playerSelection, computerSelection)
     {
         if(computerSelection === "rock")
         {
-            console.log("You Win!!! Paper beats Rock");
+            gameText.textContent = "You Win!!! Paper beats Rock";
             return "player";
         }
         else if(computerSelection === "paper")
         {
-            console.log("It's a tie");
+            gameText.textContent = "It's a tie";
             return "tie";
         }
         else if(computerSelection === "scissors")
         {
-            console.log("You Lose!! Scissors beats Paper");
+            gameText.textContent = "You Lose!! Scissors beats Paper";
             return "computer";
         }
     }
@@ -67,77 +117,22 @@ function gameRound(playerSelection, computerSelection)
     {
         if(computerSelection === "rock")
         {
-            console.log("You Lose!! Rock beats Scissors");
+            gameText.textContent = "You Lose!! Rock beats Scissors";
             return "computer";
         }
         else if(computerSelection === "paper")
         {
-            console.log("You Win!!! Scissors beats Paper");
+            gameText.textContent = "You Win!!! Scissors beats Paper";
             return "player";
         }
         else if(computerSelection === "scissors")
         {
-            console.log("It's a tie");
+            gameText.textContent = "It's a tie";
             return "tie";
         }
     }
     else
     {
         return "Please enter a valid input"
-    }
-}
-
-function game()
-{
-    let playerWins = 0;
-    let computerWins = 0;
-
-    let keepGoing = true;
-
-    while(keepGoing)
-    {
-        // Getting player input
-        let playerSelection = prompt("Make a choice");
-        if(playerSelection === null)
-        {
-            keepGoing = false;
-            return "Game ended by Player"
-        }
-        
-        let computerSelection = getComputerChoice();
-
-        // Calling game round function and storing the winner
-        let winner = gameRound(playerSelection, computerSelection);
-
-        // Increasing the wins based on the winner
-        if(winner === "player")
-        {
-            playerWins++;
-        }
-        else if(winner === "computer")
-        {
-            computerWins++;
-        }
-
-        // console.log(winner);
-        // console.log(playerWins);
-        // console.log(computerWins);
-        console.log("Player: " + playerWins + " Computer: " + computerWins);
-
-        // End the loop if one of the two wins
-        if(playerWins === 5)
-        {
-            keepGoing = false;
-
-            // easter egg
-            let message = prompt("Please leave a message for your opponent")
-            return `Player wins the game...
-                "${message}" - Player (2022)`;
-        }
-        if(computerWins === 5)
-        {
-            keepGoing = false;
-            return "Good Afternoon Player!!! Computer wins the game"
-        }
     }
 }

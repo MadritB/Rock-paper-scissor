@@ -51,6 +51,7 @@ function restartGame()
     playerScore.textContent = '0';
     computerScore.textContent = '0';
 
+    keepGoing = true;
     computerWins = 0;
     playerWins = 0;
 }

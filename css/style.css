@@ -1,0 +1,127 @@
+* 
+{
+    margin: 0px;
+    padding: 0px;
+    /*border: 1px solid black;*/
+}
+
+html, body
+{
+    height: 100%;
+    background-color: antiquewhite;
+}
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.header
+{
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+    padding: 16px;
+}
+
+.header .text
+{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 48px;
+    color: rgb(134, 76, 0);
+    transition: all 0.2s;
+}
+
+.header .text:hover
+{
+    color: rgb(182, 103, 0);
+}
+
+.options
+{
+    display: flex;
+    padding: 128px 128px 32px;
+    justify-content: space-between;
+    background-color: antiquewhite;
+}
+
+.options .buttons
+{
+    font-size: 32px;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+
+    background-color: rgb(155, 105, 41);
+    color: antiquewhite;
+}
+
+.options .buttons:hover
+{
+    box-shadow: 0px 8px 15px rgba(107, 85, 61, 0.925);
+}
+
+.scoreArea
+{
+    display: flex;
+    padding: 16px 256px;
+    justify-content: space-between;
+
+    background-color: antiquewhite;
+}
+
+.pscore, .cscore
+{
+    text-align: center;
+    font-size: 32px;
+    color: rgb(105, 68, 23);
+}
+
+.name
+{
+    font-size: 24px;
+    font-weight: 800;
+    color: rgb(126, 87, 40);
+}
+
+.textArea
+{
+    padding: 64px 16px 16px;
+    background-color: antiquewhite;
+}
+
+.textArea .text
+{
+    text-align: center;
+    font-size: 32px;
+    color: rgb(105, 68, 23);
+}
+
+.restart
+{
+    display: flex;
+    justify-content: center;
+    padding: 64px;
+}
+
+.restartButton
+{
+    font-size: 24px;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+
+    background-color: rgb(155, 105, 41);
+    color: antiquewhite;
+}
+
+.restartButton:hover
+{
+    box-shadow: 0px 8px 15px rgba(107, 85, 61, 0.925);
+}

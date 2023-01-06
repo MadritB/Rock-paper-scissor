@@ -45,10 +45,22 @@ function buttonPressed(e)
     }
 }
 
+function restartGame()
+{
+    gameText.textContent = "Ready to go!!!";
+    playerScore.textContent = '0';
+    computerScore.textContent = '0';
+
+    computerWins = 0;
+    playerWins = 0;
+}
+
 // Adding event listeners to buttons
 const buttons = document.querySelectorAll('.buttons');
 buttons.forEach((button) => button.addEventListener('click', buttonPressed));
 
+const restart = document.querySelector('.restartButton');
+restart.addEventListener('click', restartGame);
 
 function getComputerChoice()
 {

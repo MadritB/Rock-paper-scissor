@@ -4,31 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div class="header">
-        <div class="text">Rock-Paper-Scissors</div>
-    </div>
-    <div class="gameArea">
+    <div class="container">
+        <div class="header">
+            <div class="text">Rock-Paper-Scissors</div>
+        </div>
         <div class="options">
             <button class="buttons" id="rock">Rock</button>
             <button class="buttons" id="paper">Paper</button>
             <button class="buttons" id="scissors">Scissors</button>
         </div>
-    </div>
-    <div class="scoreArea">
-        <div class="=player">
-            <div class="pscore">0</div>
-            <div class="name">Player</div>
+        <div class="scoreArea">
+            <div class="=player">
+                <div class="pscore">0</div>
+                <div class="name">Player</div>
+            </div>
+            <div class="computer">
+                <div class="cscore">0</div>
+                <div class="name">Computer</div>
+            </div>
         </div>
-        <div class="computer">
-            <div class="cscore">0</div>
-            <div class="name">Computer</div>
+        <div class="textArea">
+            <div class="text"></div>
         </div>
-    </div>
-    <div class="textArea">
-        <div class="text"></div>
+        <div class="restart">
+            <button class="restartButton">Restart</button>
+        </div>
     </div>
     <script src="./js/script.js"></script>
 </body>
